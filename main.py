@@ -27,7 +27,7 @@ y_velocity = 0
 
 MY_PORT = 20000
 PLAYER2_PORT = 10000
-
+PLAYER_2_IP = '127.0.0.1'  # The server's hostname or IP address
 
 def start_server():
     HOST = '127.0.0.1' # Get local machine name
@@ -55,7 +55,6 @@ server_thread.start()
 
 
 def send_to_server():
-    PLAYER_2_IP = '127.0.0.1'  # The server's hostname or IP address
     connected = False
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
