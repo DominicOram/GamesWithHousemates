@@ -25,12 +25,13 @@ enemy_rectangle_y = 200
 x_velocity = 0
 y_velocity = 0
 
-MY_PORT = 20000
+MY_PORT = 10000
 PLAYER2_PORT = 10000
-PLAYER_2_IP = '127.0.0.1'  # The server's hostname or IP address
+PLAYER_2_IP = '192.168.0.142'  # The server's hostname or IP address
+
 
 def start_server():
-    HOST = '127.0.0.1' # Get local machine name
+    HOST = '192.168.0.234' # Get local machine name
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         server.bind((HOST, MY_PORT))
@@ -69,6 +70,7 @@ def send_to_server():
                 print("Got error {} when sending".format(e))
             time.sleep(0.01)
 
+
 client_thread = threading.Thread(target=send_to_server, args=(), daemon=True)
 client_thread.start()
 
@@ -92,7 +94,7 @@ while not crashed:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 x_velocity = 0
 
-        print(event)
+        #print(event)
 
     DISPLAY.fill(WHITE)
 
